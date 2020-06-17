@@ -1,0 +1,30 @@
+name: nakama1
+data_dir: /var/lib/nakama
+
+logger:
+  file: "/nakama/data/logs/server.log"
+  level: "debug"
+  local_time: true
+  stdout: false
+
+socket:
+  server_key: "nakama-key"
+  port: 7350
+  protocol: tcp4
+
+database:
+  address:
+    - "root@cockroachdb:26257"
+
+session:
+    # 6h token expiry
+    token_expiry_ms: 21600000
+    encryption_key: "nakama-key"
+    udp_key: "nakama-key"
+
+runtime:
+    http_key: "nakama-key"
+
+console:
+  username: "admin"
+  password: "password"
